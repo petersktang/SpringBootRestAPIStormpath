@@ -11,7 +11,7 @@ import com.jordanec.sbrestapistormpath.model.Confederation;
 import com.jordanec.sbrestapistormpath.model.Country;
 import com.jordanec.sbrestapistormpath.model.CustomRequRespObject;
 import com.jordanec.sbrestapistormpath.model.Token;
-import retrofit.Call;
+import retrofit2.Call;
 
 public class ConfederationTest {
 	private ConfederationApi confederationApi;
@@ -51,8 +51,8 @@ public class ConfederationTest {
 		System.out.println("\nconfederationReadTest... idConfederation = " + idConfederation + "\n\n");
 		Call<CustomRequRespObject<Confederation>> call = confederationApi.readConfederation(idConfederation);
 		try {
-			retrofit.Response<CustomRequRespObject<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Confederation> customRequRespConfederation = response.body();
 				System.out.println(customRequRespConfederation.getStatus());
 				System.out.println(customRequRespConfederation.getObject());
@@ -72,8 +72,8 @@ public class ConfederationTest {
 				new CustomRequRespObject<>(new Confederation(name), true);
 		Call<CustomRequRespObject<Confederation>> call = confederationApi.createConfederation(customRequRespConfederation);
 		try {
-			retrofit.Response<CustomRequRespObject<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				customRequRespConfederation = response.body();
 				System.out.println(customRequRespConfederation.getStatus());
 				System.out.println(customRequRespConfederation.getObject());
@@ -94,8 +94,8 @@ public class ConfederationTest {
 				new CustomRequRespObject<>(collection, false);
 		Call<CustomRequRespObject<Confederation>> call = confederationApi.createConfederation(customRequRespConfederation);
 		try {
-			retrofit.Response<CustomRequRespObject<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				customRequRespConfederation = response.body();
 				System.out.println(customRequRespConfederation.getStatus());
 				System.out.println(customRequRespConfederation.getCollection());
@@ -123,8 +123,8 @@ public class ConfederationTest {
 		Call<CustomRequRespObject<Confederation>> call = confederationApi.updateConfederation(customRequRespConfederation, idConfederation);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				customRequRespConfederation = response.body();
 				System.out.println(customRequRespConfederation.getStatus());
 				System.out.println(customRequRespConfederation.getObject());
@@ -144,8 +144,8 @@ public class ConfederationTest {
 		Call<CustomRequRespObject<Confederation>> call = confederationApi.deleteConfederation(idConfederation);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Confederation> customRequRespConfederation = response.body();
 				System.out.println(customRequRespConfederation.getStatus());
 				System.out.println(customRequRespConfederation.getObject());
@@ -165,8 +165,8 @@ public class ConfederationTest {
 		Call<CustomRequRespObject<Confederation>> call = confederationApi.listConfederations();
 
 		try {
-			retrofit.Response<CustomRequRespObject<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Confederation> customRequRespConfederation = response.body();
 				if(customRequRespConfederation.getStatus().getCode() == HttpStatus.SC_OK) {
 					System.out.println(customRequRespConfederation.getStatus());
@@ -196,8 +196,8 @@ public class ConfederationTest {
 		Call<CustomRequRespObject<Confederation>> call = confederationApi.findByName(name);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Confederation> customRequRespConfederation = response.body();
 				System.out.println(customRequRespConfederation.getStatus());
 				System.out.println(customRequRespConfederation.getObject());
@@ -216,8 +216,8 @@ public class ConfederationTest {
 		Call<CustomRequRespObject<Country>> call = confederationApi.readConfederationCountries(idConfederation);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Country> customRequRespCountry = response.body();
 				if(customRequRespCountry.getStatus().getCode() == HttpStatus.SC_OK) {
 					System.out.println(customRequRespCountry.getStatus());

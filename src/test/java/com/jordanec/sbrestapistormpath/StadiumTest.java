@@ -14,7 +14,7 @@ import com.jordanec.sbrestapistormpath.client.PlayerApi;
 import com.jordanec.sbrestapistormpath.client.ServiceGenerator;
 import com.jordanec.sbrestapistormpath.client.StadiumApi;
 import com.jordanec.sbrestapistormpath.model.*;
-import retrofit.Call;
+import retrofit2.Call;
 
 public class StadiumTest {
 	private StadiumApi stadiumApi;
@@ -53,8 +53,8 @@ public class StadiumTest {
 		System.out.println("\nstadiumReadTest... idStadium = " + idStadium + "\n\n");
 		Call<CustomRequRespObject<Stadium>> call = stadiumApi.readStadium(idStadium);
 		try {
-			retrofit.Response<CustomRequRespObject<Stadium>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Stadium>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Stadium> customRequRespStadium = response.body();
 				System.out.println(customRequRespStadium.getStatus());
 				System.out.println(customRequRespStadium.getObject());

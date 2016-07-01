@@ -5,12 +5,12 @@ import java.util.LinkedHashMap;
 import com.jordanec.sbrestapistormpath.model.Token;
 import com.jordanec.sbrestapistormpath.util.Constants;
 
-import retrofit.Call;
-import retrofit.http.Body;
-import retrofit.http.Field;
-import retrofit.http.FormUrlEncoded;
-import retrofit.http.POST;
-import retrofit.http.Headers;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.POST;
+import retrofit2.http.Headers;
 
 public interface AuthAPI {
 	public static final String MAIN_PATH = "/"+Constants.API_VERSION+"/";

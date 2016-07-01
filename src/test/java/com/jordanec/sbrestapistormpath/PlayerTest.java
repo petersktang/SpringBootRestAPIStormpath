@@ -13,7 +13,7 @@ import com.jordanec.sbrestapistormpath.client.CountryApi;
 import com.jordanec.sbrestapistormpath.client.PlayerApi;
 import com.jordanec.sbrestapistormpath.client.ServiceGenerator;
 import com.jordanec.sbrestapistormpath.model.*;
-import retrofit.Call;
+import retrofit2.Call;
 
 public class PlayerTest {
 	private PlayerApi playerApi;
@@ -63,8 +63,8 @@ public class PlayerTest {
 		System.out.println("\nplayerReadTest... idPlayer = " + idPlayer + "\n\n");
 		Call<CustomRequRespObject<Player>> call = playerApi.readPlayer(idPlayer);
 		try {
-			retrofit.Response<CustomRequRespObject<Player>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Player>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Player> customRequRespPlayer = response.body();
 				System.out.println(customRequRespPlayer.getStatus());
 				System.out.println(customRequRespPlayer.getObject());

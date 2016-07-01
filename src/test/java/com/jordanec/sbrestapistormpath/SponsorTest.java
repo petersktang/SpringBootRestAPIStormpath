@@ -13,7 +13,7 @@ import com.jordanec.sbrestapistormpath.client.CountryApi;
 import com.jordanec.sbrestapistormpath.client.SponsorApi;
 import com.jordanec.sbrestapistormpath.client.ServiceGenerator;
 import com.jordanec.sbrestapistormpath.model.*;
-import retrofit.Call;
+import retrofit2.Call;
 
 public class SponsorTest {
 	private SponsorApi sponsorApi;
@@ -52,8 +52,8 @@ public class SponsorTest {
 		System.out.println("\nsponsorReadTest... idSponsor = " + idSponsor + "\n\n");
 		Call<CustomRequRespObject<Sponsor>> call = sponsorApi.readSponsor(idSponsor);
 		try {
-			retrofit.Response<CustomRequRespObject<Sponsor>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Sponsor>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Sponsor> customRequRespSponsor = response.body();
 				System.out.println(customRequRespSponsor.getStatus());
 				System.out.println(customRequRespSponsor.getObject());

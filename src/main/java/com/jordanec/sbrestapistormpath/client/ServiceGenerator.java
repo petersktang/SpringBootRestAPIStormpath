@@ -7,13 +7,13 @@ import org.apache.commons.codec.binary.Base64;
 
 import com.jordanec.sbrestapistormpath.model.Token;
 import com.jordanec.sbrestapistormpath.util.Constants;
-import com.squareup.okhttp.FormEncodingBuilder;
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-import retrofit.JacksonConverterFactory;
-import retrofit.Retrofit;
+import okhttp3.FormBody;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import retrofit2.converter.jackson.JacksonConverterFactory;
+import retrofit2.Retrofit;
 
 public class ServiceGenerator {
 
@@ -45,7 +45,7 @@ public class ServiceGenerator {
 					Request original = chain.request();
 
 					Request.Builder requestBuilder = original.newBuilder().header("Authorization", basic)
-							.post(new FormEncodingBuilder().add("grant_type", "password").add("scope", scope)
+							.post(new FormBody.Builder().add("grant_type", "password").add("scope", scope)
 									.add("username", usename).add("password", password).build());
 					Request request = requestBuilder.build();
 					return chain.proceed(request);

@@ -2,13 +2,13 @@ package com.jordanec.sbrestapistormpath.client;
 
 import com.jordanec.sbrestapistormpath.model.*;
 import com.jordanec.sbrestapistormpath.util.Constants;
-import retrofit.Call;
-import retrofit.http.Body;
-import retrofit.http.GET;
-import retrofit.http.POST;
-import retrofit.http.PUT;
-import retrofit.http.Path;
-import retrofit.http.DELETE;
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
+import retrofit2.http.DELETE;
 
 public interface TeamApi {
 	public static final String MAIN_PATH = "/"+Constants.API_VERSION+"/"+Constants.TEAMS_PATH;

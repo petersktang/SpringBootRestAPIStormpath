@@ -4,8 +4,8 @@ import java.io.IOException;
 import com.jordanec.sbrestapistormpath.client.AuthAPI;
 import com.jordanec.sbrestapistormpath.client.ServiceGenerator;
 import com.jordanec.sbrestapistormpath.model.Token;
-import retrofit.Call;
-import retrofit.Response;
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class AuthTest {
 	private AuthAPI authAPI;
@@ -43,7 +43,7 @@ public class AuthTest {
 		Token token = null;
 		try {
 			Response<Token> response = call.execute();
-			if (response.isSuccess()) {
+			if (response.isSuccessful()) {
 				token = response.body();
 				System.out.println(token);
 			}

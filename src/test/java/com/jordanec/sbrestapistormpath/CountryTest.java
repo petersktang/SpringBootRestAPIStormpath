@@ -18,7 +18,7 @@ import com.jordanec.sbrestapistormpath.model.Player;
 import com.jordanec.sbrestapistormpath.model.Country;
 import com.jordanec.sbrestapistormpath.model.CustomRequRespObject;
 import com.jordanec.sbrestapistormpath.model.Status;
-import retrofit.Call;
+import retrofit2.Call;
 
 public class CountryTest {
 	private CountryApi countryApi;
@@ -61,8 +61,8 @@ public class CountryTest {
 		System.out.println("\ncountryReadTest... idCountry = " + idCountry + "\n\n");
 		Call<CustomRequRespObject<Country>> call = countryApi.readCountry(idCountry);
 		try {
-			retrofit.Response<CustomRequRespObject<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Country> customRequRespCountry = response.body();
 				System.out.println(customRequRespCountry.getStatus());
 				System.out.println(customRequRespCountry.getObject());
@@ -82,8 +82,8 @@ public class CountryTest {
 				new Country(confederationTest.confederationReadTest(idConfederation), name, positionRankingFifa), true);
 		Call<CustomRequRespObject<Country>> call = countryApi.createCountry(customRequRespCountry);
 		try {
-			retrofit.Response<CustomRequRespObject<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				customRequRespCountry = response.body();
 				System.out.println(customRequRespCountry.getStatus());
 				System.out.println(customRequRespCountry.getObject());
@@ -104,8 +104,8 @@ public class CountryTest {
 				new CustomRequRespObject<>(collection, false);
 		Call<CustomRequRespObject<Country>> call = countryApi.createCountry(customRequRespCountry);
 		try {
-			retrofit.Response<CustomRequRespObject<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				customRequRespCountry = response.body();
 				System.out.println(customRequRespCountry.getStatus());
 				System.out.println(customRequRespCountry.getCollection());
@@ -134,8 +134,8 @@ public class CountryTest {
 		Call<CustomRequRespObject<Country>> call = countryApi.updateCountry(customRequRespCountry, idCountry);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				customRequRespCountry = response.body();
 				System.out.println(customRequRespCountry.getStatus());
 				System.out.println(customRequRespCountry.getObject());
@@ -155,8 +155,8 @@ public class CountryTest {
 		Call<CustomRequRespObject<Country>> call = countryApi.deleteCountry(idCountry);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Country> customRequRespCountry = response.body();
 				System.out.println(customRequRespCountry.getStatus());
 				System.out.println(customRequRespCountry.getObject());
@@ -176,8 +176,8 @@ public class CountryTest {
 		Call<CustomRequRespObject<Country>> call = countryApi.listCountries();
 
 		try {
-			retrofit.Response<CustomRequRespObject<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Country> customRequRespCountry = response.body();
 				if(customRequRespCountry.getStatus().getCode() == HttpStatus.SC_OK) {
 					System.out.println(customRequRespCountry.getStatus());
@@ -207,8 +207,8 @@ public class CountryTest {
 		Call<CustomRequRespObject<Country>> call = countryApi.findByName(name);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Country>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Country>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Country> customRequRespCountry = response.body();
 				System.out.println(customRequRespCountry.getStatus());
 				System.out.println(customRequRespCountry.getObject());
@@ -227,8 +227,8 @@ public class CountryTest {
 		Call<CustomRequRespObject<Team>> call = countryApi.readCountryTeams(idCountry);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Team>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Team>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Team> customRequRespTeam = response.body();
 				if(customRequRespTeam.getStatus().getCode() == HttpStatus.SC_OK) {
 					System.out.println(customRequRespTeam.getStatus());
@@ -258,8 +258,8 @@ public class CountryTest {
 		Call<CustomRequRespObject<Player>> call = countryApi.readCountryPlayers(idCountry);
 
 		try {
-			retrofit.Response<CustomRequRespObject<Player>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Player>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Player> customRequRespPlayer = response.body();
 				if(customRequRespPlayer.getStatus().getCode() == HttpStatus.SC_OK) {
 					System.out.println(customRequRespPlayer.getStatus());
@@ -288,8 +288,8 @@ public class CountryTest {
 		System.out.println("\ncountryConfederationReadTest... idCountry = " + idCountry + "\n\n");
 		Call<CustomRequRespObject<Confederation>> call = countryApi.readCountryConfederation(idCountry);
 		try {
-			retrofit.Response<CustomRequRespObject<Confederation>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Confederation>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Confederation> customRequRespConfederation = response.body();
 				System.out.println(customRequRespConfederation.getStatus());
 				System.out.println(customRequRespConfederation.getObject());

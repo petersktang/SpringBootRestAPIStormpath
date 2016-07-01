@@ -14,7 +14,7 @@ import com.jordanec.sbrestapistormpath.client.PlayerApi;
 import com.jordanec.sbrestapistormpath.client.ServiceGenerator;
 import com.jordanec.sbrestapistormpath.client.TeamApi;
 import com.jordanec.sbrestapistormpath.model.*;
-import retrofit.Call;
+import retrofit2.Call;
 
 public class TeamTest {
 	private TeamApi teamApi;
@@ -57,8 +57,8 @@ public class TeamTest {
 		System.out.println("\nteamReadTest... idTeam = " + idTeam + "\n\n");
 		Call<CustomRequRespObject<Team>> call = teamApi.readTeam(idTeam);
 		try {
-			retrofit.Response<CustomRequRespObject<Team>> response = call.execute();
-			if (response.isSuccess()) {
+			retrofit2.Response<CustomRequRespObject<Team>> response = call.execute();
+			if (response.isSuccessful()) {
 				CustomRequRespObject<Team> customRequRespTeam = response.body();
 				System.out.println(customRequRespTeam.getStatus());
 				System.out.println(customRequRespTeam.getObject());
